@@ -20,10 +20,9 @@ const mailTransport = nodemailer.createTransport({
   }
 });
 exports.sendEmail = functions.https.onRequest((req, res) => {
-  // res.send('Hello from Firebase! ' + functions.config().gmail.email + ' ' + functions.config().gmail.password);
-  const email = 'taqin@call-levels.com';
+  const email = 'aaa@bbb.com';
   const mailOptions = {
-    from: `CL Cloud Emailer Service <noreply@call-levels.com>`,
+    from: `CL Cloud Emailer Service <noreply@cccc.com>`,
     to: email,
     subject: 'Hey there from CLV',
     html: '<h1>Hello there</h1>'
