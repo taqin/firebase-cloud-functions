@@ -20,18 +20,20 @@ const mailTransport = nodemailer.createTransport({
   }
 });
 exports.sendEmail = functions.https.onRequest((req, res) => {
-  const email = 'aaa@bbb.com';
+  const email = req.body.email;
+  const textContent = req.body.text;
+  
   const mailOptions = {
-    from: `CL Cloud Emailer Service <noreply@cccc.com>`,
+    from: `Cloud Emailer Service <noreply@cccc.com>`,
     to: email,
     subject: 'Hey there from CLV',
-    html: '<h1>Hello there</h1>'
+    html: '<h1>'+ textContent +'</h1>'
   };
   
   try {
     mailTransport.sendMail(mailOptions, (error, info) => {
       if (error) return console.log(error);
-      res.send('Email sent: ' + info.response);
+      res.send(`Email sent to: ${email} with content: ${textContent}`);
     });
   } catch (error) {
     console.error(

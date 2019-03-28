@@ -20,7 +20,7 @@ You can run functions locally to test them before deploying to production. To ru
 firebase serve --only functions
 ~~~~
 
-## Environment Variables
+## Environment Variables Set Up
 #### Local :large_blue_circle:
 Create a .runtimeconfig.json file with the following values
 ~~~~
